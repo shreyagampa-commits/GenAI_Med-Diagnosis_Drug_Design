@@ -9,6 +9,8 @@ __pycache__/
 *.pt
 *.bin
 Backend/.env
+*.keras
+*.pkl
 
 
 # Node modules (if applicable)
