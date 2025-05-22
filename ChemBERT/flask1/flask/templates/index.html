@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMILES Mask Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f0f8ff;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .box {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            max-width: 500px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .prediction-block {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Masked SMILES Predictor</h1>
+    <form action="/predict" method="POST">
+        <input type="text" name="user_input" placeholder="e.g., CCO<mask>" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if user_input %}
+        <div class="box">
+            <h2>Input SMILES:</h2>
+            <p>{{ user_input }}</p>
+        </div>
+    {% endif %}
+
+    {% if prediction %}
+        <div class="box prediction-block">
+            <h2>Top 5 Predictions:</h2>
+            {{ prediction|safe }}
+        </div>
+    {% endif %}
+</body>
+</html>
