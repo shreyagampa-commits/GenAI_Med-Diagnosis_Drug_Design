@@ -8,6 +8,8 @@ __pycache__/
 *.ckpt
 *.pt
 *.bin
+Backend/.env
+
 
 # Node modules (if applicable)
 node_modules/
